@@ -6,58 +6,43 @@
       class="text-xs border-b border-custom-light-gray/40 dark:text-custom-light-gray"
     >
       <tr>
-        <th scope="col" class="px-6 py-6">Flag</th>
-        <th scope="col" class="px-6 py-6">Name</th>
-        <th scope="col" class="px-6 py-6">Population</th>
-        <th scope="col" class="px-6 py-6">Area (km²)</th>
+        @for (header of headers; track $index) {
+        <th scope="col" class="px-6 py-6">{{ header }}</th>
+        }
       </tr>
     </thead>
     <tbody>
+      @for (country of countries; track country.name) {
       <tr>
         <th
           scope="row"
           class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
         >
           <img
-            src="https://flagcdn.com/ad.svg"
-            alt=""
+            [src]="country?.flags?.svg ?? 'assets/Logo.svg'"
+            [alt]="'Flag of' + country.name"
             class="w-12 h-8 rounded-md object-cover"
+            loading="lazy"
           />
         </th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
+        <td class="text-custom-light px-6 py-4 text-pretty">
+          {{ country?.name?.common }}
+        </td>
+        <td class="text-custom-light px-6 py-4">
+          {{ country.population | number }}
+        </td>
+        <td class="text-custom-light px-6 py-4">{{ country.area | number }}</td>
       </tr>
+      } @empty {
       <tr>
-        <th
-          scope="row"
-          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        <td
+          class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          [colSpan]="headers.length"
         >
-          <img
-            src="https://flagcdn.com/ad.svg"
-            alt=""
-            class="w-12 h-8 rounded-md object-cover"
-          />
-        </th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
+          No countries found
+        </td>
       </tr>
-      <tr>
-        <th
-          scope="row"
-          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          <img
-            src="https://flagcdn.com/ad.svg"
-            alt=""
-            class="w-12 h-8 rounded-md object-cover"
-          />
-        </th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-      </tr>
+      }
     </tbody>
   </table>
 </div>

@@ -1,0 +1,16 @@
+<article>
+  <label
+    for="countries"
+    class="block mb-2 text-xs font-medium text-custom-light-gray"
+    >Sort By</label
+  >
+  <select
+    id="countries"
+    class="w-full p-2.5 bg-transparent ring-2 border-2 border-custom-dark-gray rounded-lg dark:bg-custom-dark"
+    formControl="sortByControl"
+  >
+    @for (option of sortByOption; track $index) {
+    <option [value]="option">{{ option }}</option>
+    }
+  </select>
+</article>

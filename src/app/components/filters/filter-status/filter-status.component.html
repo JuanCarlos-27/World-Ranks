@@ -1,0 +1,13 @@
+<article>
+  <h3 class="text-xs font-medium text-custom-light-gray">Status</h3>
+  <div class="flex gap-2 flex-col mt-3">
+    @for (option of statusOptions; track $index) {
+    <label
+      class="flex gap-3 items-center text-sm font-medium text-gray-900 dark:text-gray-300"
+    >
+      <input type="checkbox" value="" class="size-5 rounded-2xl" />
+      {{ option }}
+    </label>
+    }
+  </div>
+</article>

@@ -6,6 +6,6 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css',
+  styles: `header { background-image: url("/assets/hero-image-wr.jpg");}`,
 })
 export class LayoutComponent {}
