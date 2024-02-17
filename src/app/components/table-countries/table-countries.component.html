@@ -12,28 +12,16 @@
       </tr>
     </thead>
     <tbody>
-      @for (country of countries; track country.name) {
+      @for (country of countries; track country.name) { @defer (on viewport) {
+      <ng-container
+        *ngTemplateOutlet="countryRow; context: { $implicit: country }"
+      />
+
+      } @placeholder {
       <tr>
-        <th
-          scope="row"
-          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          <img
-            [src]="country?.flags?.svg ?? 'assets/Logo.svg'"
-            [alt]="'Flag of' + country.name"
-            class="w-12 h-8 rounded-md object-cover"
-            loading="lazy"
-          />
-        </th>
-        <td class="text-custom-light px-6 py-4 text-pretty">
-          {{ country?.name?.common }}
-        </td>
-        <td class="text-custom-light px-6 py-4">
-          {{ country.population | number }}
-        </td>
-        <td class="text-custom-light px-6 py-4">{{ country.area | number }}</td>
+        <ng-container *ngTemplateOutlet="placeholder"></ng-container>
       </tr>
-      } @empty {
+      } } @empty {
       <tr>
         <td
           class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -46,3 +34,40 @@
     </tbody>
   </table>
 </div>
+
+<ng-template #countryRow let-country>
+  <tr>
+    <th
+      scope="row"
+      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+    >
+      <img
+        [src]="country?.flags?.svg ?? 'assets/Logo.svg'"
+        [alt]="'Flag of' + country.name"
+        class="w-12 h-8 rounded-md object-cover"
+      />
+    </th>
+    <td class="text-custom-light px-6 py-4 text-pretty">
+      {{ country?.name?.common }}
+    </td>
+    <td class="text-custom-light px-6 py-4">
+      {{ country.population | number }}
+    </td>
+    <td class="text-custom-light px-6 py-4">{{ country.area | number }}</td>
+  </tr>
+</ng-template>
+
+<ng-template #placeholder>
+  <th scope="row" class="px-6 py-4 e">
+    <div class="animate-pulse bg-custom-light w-12 h-8 rounded-md"></div>
+  </th>
+  <td>
+    <div class="animate-pulse bg-custom-light w-24 h-4 rounded-md"></div>
+  </td>
+  <td>
+    <div class="animate-pulse bg-custom-light w-24 h-4 rounded-md"></div>
+  </td>
+  <td>
+    <div class="animate-pulse bg-custom-light w-24 h-4 rounded-md"></div>
+  </td>
+</ng-template>
