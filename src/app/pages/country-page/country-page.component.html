@@ -1,1 +1,58 @@
-<p>country-page works!</p>
+<section class="flex flex-col items-center gap-7">
+  <picture class="-mt-20">
+    <img
+      [src]="country()?.flags?.svg"
+      [alt]="country()?.name?.common"
+      class="w-80 object-fill rounded-lg"
+    />
+  </picture>
+  <article class="text-center">
+    <h2 class="text-3xl font-semibold">{{ country()?.name?.common }}</h2>
+    <p class="font-thin">{{ country()?.name?.official }}</p>
+  </article>
+
+  <article class="flex gap-7 items-center">
+    @for (item of pills(); track $index) {
+    <div
+      class="px-5 py-3 shadow-md flex gap-x-6 bg-custom-dark-gray rounded-2xl"
+    >
+      <h3>{{ item.label }}</h3>
+      <p>{{ item.value | number }}</p>
+    </div>
+    }
+  </article>
+
+  <article class="w-full">
+    @for (item of information(); track $index) {
+    <div
+      class="flex justify-between items-center px-4 py-6 border-t border-custom-light-gray/25 border-solid"
+    >
+      <h3 class="opacity-50">{{ item.label }}</h3>
+      <p>{{ item.value }}</p>
+    </div>
+    }
+
+    <div
+      class="flex flex-col px-4 py-6 border-t border-custom-light-gray/25 border-solid"
+    >
+      <h3 class="opacity-50">Neighbouring Countries</h3>
+      <div class="mt-4 flex gap-4 flex-wrap">
+        @for (country of bordersFlags(); track $index) {
+        <div class="flex flex-col items-center gap-2">
+          <img
+            [src]="country?.flag"
+            alt="Neighbouring Country Flag"
+            class="w-20 h-12 object-fill rounded-md"
+          />
+          <a
+            routerLink="/country/{{ country.name }}"
+            class="text-sm hover:underline"
+          >
+            {{ country.name }}
+          </a>
+        </div>
+        }
+      </div>
+    </div>
+  </article>
+</section>

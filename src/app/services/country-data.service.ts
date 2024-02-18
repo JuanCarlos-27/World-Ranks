@@ -6,7 +6,7 @@ import {
 import { Country, Region } from '@/interfaces/country.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +26,20 @@ export class CountryDataService {
         this._countryData.set(countries);
         this.sortInfoBy(SORT_DATA_BY.POPULATION);
         console.log(countries);
+      })
+    );
+  }
+
+  getCountryByName(name: string): Observable<Country> {
+    return this.http
+      .get<Country[]>(`${this.apiUrl}/name/${name}?fullText=true`)
+      .pipe(map((data) => data[0]));
+  }
+
+  getCountryFlagByCode(code: string) {
+    return this.http.get(`${this.apiUrl}/alpha/${code}?fields=flags,name`).pipe(
+      map((data: any) => {
+        return { name: data?.name?.common, flag: data?.flags?.png };
       })
     );
   }

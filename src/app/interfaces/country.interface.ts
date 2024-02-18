@@ -8,6 +8,10 @@ export interface Country {
   area: number;
   population: number;
   unMember: boolean;
+  continents: string[];
+  currencies: { [key: string]: { name: string; symbol: string } };
+  languages: { [key: string]: string };
+  borders: string[];
 }
 
 export interface Flags {

@@ -48,7 +48,9 @@
       />
     </th>
     <td class="text-custom-light px-6 py-4 text-pretty">
-      {{ country?.name?.common }}
+      <a routerLink="/country/{{ country?.name?.common }}">{{
+        country?.name?.common
+      }}</a>
     </td>
     <td class="text-custom-light px-6 py-4">
       {{ country.population | number }}
