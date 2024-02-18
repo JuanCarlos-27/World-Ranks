@@ -1,27 +1,32 @@
-# AngularWorldRanks
+# Country Page - WorldRanks - Frontend Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+This is a simple web application that displays a list of countries and their details.
+You can use different filters to search for a specific country, and you can also sort the countries by different criteria.
+It was built as a challenge from [Devchallenges.io](https://devchallenges.io).
 
-## Development server
+![image](https://github.com/JuanCarlos-27/coffee-list/assets/110681873/ec6df926-69ef-4399-a0a9-b53477dca056)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies Used
 
-## Code scaffolding
+- [Tailwind CSS](https://tailwindcss.com/)💅: A utility-first CSS framework for rapidly building custom user interfaces.
+- [Angular](https://reactjs.org/)🔴: A JavaScript library for building user interfaces.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## API Used
 
-## Build
+- [Rest Countries](https://restcountries.com/)🌍: A simple API that provides information about countries.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
 
-## Running unit tests
+To get started with the Coffee List Fr Ch app, follow these steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository: `git clonehttps://github.com/JuanCarlos-27/world-ranks`
+2. Install the dependencies: `npm install`
+3. Start the development server: `ng serve`
 
-## Running end-to-end tests
+## Credits
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This project was created as part of the [Devchallenges.io](https://devchallenges.io/) challenge. Special thanks to Devchallenges.io for providing the inspiration and resources for this project.
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is licensed under the [MIT License](LICENSE).
