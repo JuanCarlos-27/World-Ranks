@@ -4,4 +4,6 @@ export const SORT_DATA_BY = {
   CAPITAL: 'capital',
 } as const;
 
-export type Options = 'population' | 'area' | 'capital';
+export type SortingOptions = 'population' | 'area' | 'capital';
+
+export type StatusOptions = 'unMember' | 'independent';

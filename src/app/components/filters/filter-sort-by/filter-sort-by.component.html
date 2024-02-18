@@ -7,10 +7,11 @@
   <select
     id="countries"
     class="w-full p-2.5 bg-transparent ring-2 border-2 border-custom-dark-gray rounded-lg dark:bg-custom-dark"
-    formControl="sortByControl"
+    [formControl]="selectedSortBy"
+    (change)="handleSortBy()"
   >
     @for (option of sortByOption; track $index) {
-    <option [value]="option">{{ option }}</option>
+    <option [value]="option">{{ option | titlecase }}</option>
     }
   </select>
 </article>

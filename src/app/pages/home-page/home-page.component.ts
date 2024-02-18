@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { SearchBarComponent } from '@/components/search-bar/search-bar.component';
 import { TableCountriesComponent } from '@/components/table-countries/table-countries.component';
 import { FiltersComponent } from '@/components/filters/filters.component';
@@ -15,11 +15,11 @@ export default class HomePageComponent implements OnInit {
   private countryService = inject(CountryDataService);
 
   public tableHeaders = ['Flag', 'Name', 'Population', 'Area (km²)'];
-  public countries = signal<Country[]>([]);
+  public countries = computed<Country[]>(() =>
+    this.countryService.countryData()
+  );
 
   ngOnInit(): void {
-    this.countryService.getAllCountriesData().subscribe((countries) => {
-      this.countries.set(countries);
-    });
+    this.countryService.getAllCountriesData().subscribe();
   }
 }

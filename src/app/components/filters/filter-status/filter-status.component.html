@@ -7,11 +7,14 @@
     >
       <input
         type="checkbox"
-        value=""
-        [id]="option"
         class="size-5 rounded-2xl"
+        [value]="option.name"
+        [id]="option.name"
+        [checked]="option.selected"
+        (change)="handleStatusSelect(status.checked, $index)"
+        #status
       />
-      {{ option }}
+      {{ option.name }}
     </label>
     }
   </div>

@@ -4,8 +4,10 @@ export interface Country {
   independent?: boolean;
   capital: string[];
   region: Region;
+  subregion: string;
   area: number;
   population: number;
+  unMember: boolean;
 }
 
 export interface Flags {
