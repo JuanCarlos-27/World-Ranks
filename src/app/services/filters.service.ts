@@ -7,12 +7,12 @@ export class FiltersService {
   public sortByOptions = ['area', 'population', 'capital'];
 
   public regions = [
-    { name: Region.Africa, selected: true },
     { name: Region.Americas, selected: true },
+    { name: Region.Antarctic, selected: false },
+    { name: Region.Africa, selected: true },
     { name: Region.Asia, selected: true },
     { name: Region.Europe, selected: true },
-    { name: Region.Oceania, selected: true },
-    { name: Region.Antarctic, selected: true },
+    { name: Region.Oceania, selected: false },
   ];
 
   public statusOptions: Array<{

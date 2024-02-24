@@ -6,12 +6,14 @@
   >
   <select
     id="countries"
-    class="w-full p-2.5 bg-transparent ring-2 border-2 border-custom-dark-gray rounded-lg dark:bg-custom-dark"
+    class="w-full p-2.5 rounded-lg bg-transparent text-gray-300 border-4 border-custom-dark-gray"
     [formControl]="selectedSortBy"
     (change)="handleSortBy()"
   >
     @for (option of sortByOption; track $index) {
-    <option [value]="option">{{ option | titlecase }}</option>
+    <option [value]="option" class="bg-custom-dark-gray">
+      {{ option | titlecase }}
+    </option>
     }
   </select>
 </article>
