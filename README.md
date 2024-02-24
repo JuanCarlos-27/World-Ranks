@@ -4,7 +4,7 @@ This is a simple web application that displays a list of countries and their det
 You can use different filters to search for a specific country, and you can also sort the countries by different criteria.
 It was built as a challenge from [Devchallenges.io](https://devchallenges.io).
 
-![image](https://github.com/JuanCarlos-27/coffee-list/assets/110681873/ec6df926-69ef-4399-a0a9-b53477dca056)
+![image](https://github.com/JuanCarlos-27/world-ranks/assets/110681873/f27174ce-3c4f-472f-885f-31a163bd9a6c)
 
 ## Technologies Used
 
